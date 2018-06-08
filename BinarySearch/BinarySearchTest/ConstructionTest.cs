@@ -42,7 +42,7 @@ namespace BinarySearchTest
         [TestMethod]
         public void ConstructSingleItem()
         {
-            int[] data = new int [] { 2 };
+            int[] data = new int[] { 2 };
             Node root = Program.CreateBinaryTree(data);
             Assert.AreEqual(2, root.Data);
             Assert.AreEqual(0, root.Position);
@@ -50,6 +50,9 @@ namespace BinarySearchTest
             Assert.IsNull(root.RightNode);
         }
 
+        /// <summary>
+        /// Construct a test tree with 2 elements in it
+        /// </summary>
         [TestMethod]
         public void ConstructTwoItems()
         {
@@ -64,6 +67,9 @@ namespace BinarySearchTest
             Assert.IsNull(root.RightNode);
         }
 
+        /// <summary>
+        /// Construct a test tree with 3 elements in it
+        /// </summary>
         [TestMethod]
         public void ConstructThreeItems()
         {

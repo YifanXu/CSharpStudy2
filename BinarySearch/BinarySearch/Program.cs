@@ -25,6 +25,49 @@ namespace BinarySearch
         }
 
         /// <summary>
+        /// Because they said binary trees are not binary search
+        /// </summary>
+        /// <param name="data">Array of data</param>
+        /// <param name="number">Number that is queried</param>
+        /// <returns>The position of the number in the array. -1 if not found</returns>
+        public static int MagicalBinarySearch(int[] data, int number)
+        {
+            if (data == null)
+            {
+                throw new NullReferenceException("the array given is null");
+            }
+
+            // Sort just in case
+            data.BubbleSort();
+
+            // Set up
+            int minPos = 0;
+            int maxPos = data.Length - 1;
+            int divider = 0;
+
+            while (maxPos >= minPos)
+            {
+                divider = (minPos + maxPos) / 2;
+
+                if (data[divider] == number)
+                {
+                    return divider;
+                }
+
+                if (number > data[divider])
+                {
+                    minPos = divider + 1;
+                }
+                else
+                {
+                    maxPos = divider - 1;
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
         /// Binary Search for a position of a number given. -1 if unknown
         /// </summary>
         /// <param name="array">Array of numbers to search in</param>
@@ -79,7 +122,7 @@ namespace BinarySearch
         /// <param name="startingIndex">A arithmetic translation of all positions created in the binary tree</param>
         /// <param name="data">Sorted data that will be contained in the binary tree</param>
         /// <returns>The root of a constructed binary tree</returns>
-        public  static Node CreateBinaryTree(int startingIndex, int[] data)
+        public static Node CreateBinaryTree(int startingIndex, int[] data)
         {
             if (data == null || data.Length == 0)
             {
