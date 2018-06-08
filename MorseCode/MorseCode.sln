@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MorseCode", "MorseCode\MorseCode.csproj", "{A13BCA26-9EB7-4010-B805-4DCF747BDED9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{1757C53C-CD69-4285-B4D8-3AFDA6FDAE18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A13BCA26-9EB7-4010-B805-4DCF747BDED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13BCA26-9EB7-4010-B805-4DCF747BDED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13BCA26-9EB7-4010-B805-4DCF747BDED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13BCA26-9EB7-4010-B805-4DCF747BDED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1757C53C-CD69-4285-B4D8-3AFDA6FDAE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1757C53C-CD69-4285-B4D8-3AFDA6FDAE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1757C53C-CD69-4285-B4D8-3AFDA6FDAE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1757C53C-CD69-4285-B4D8-3AFDA6FDAE18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1F7416A-EF37-4B4B-95B2-5DA49AF7CD9D}
+	EndGlobalSection
+EndGlobal
