@@ -18,12 +18,12 @@ namespace BinarySearchTest
         /// <summary>
         /// A test array with one element
         /// </summary>
-        private int[] singleElementTree = new int[1] { 3 };
+        private int[] singleElementTree = new int[] { 3 };
 
         /// <summary>
         /// A test array with two elements
         /// </summary>
-        private int[] dualElementTree = new int[2] { 3, 5 };
+        private int[] dualElementTree = new int[] { 3, 5 };
 
         /// <summary>
         /// A test array with odd number of elements
@@ -39,7 +39,7 @@ namespace BinarySearchTest
         /// Test method when given null data array
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void MagicalNullArray()
         {
             Program.MagicalBinarySearch(null, 1);
@@ -49,7 +49,7 @@ namespace BinarySearchTest
         /// Test method when given empty array
         /// </summary>
         [TestMethod]
-        public void MagicalEmptyArray()
+        public void MagicalBinarySearch_EmptyArray()
         {
             Assert.AreEqual(-1, Program.MagicalBinarySearch(new int[0], 1));
         }
@@ -58,7 +58,7 @@ namespace BinarySearchTest
         /// Test method when given array with one element
         /// </summary>
         [TestMethod]
-        public void MagicalSingleElement()
+        public void MagicalBinarySearch_SingleElement_Found()
         {
             Assert.AreEqual(0, Program.MagicalBinarySearch(this.singleElementTree, 3));
         }
@@ -67,7 +67,7 @@ namespace BinarySearchTest
         /// Test method when given array with one element and invalid query
         /// </summary>
         [TestMethod]
-        public void MagicalInvalidSingleElement()
+        public void MagicalBinarySearch_SingleElement_NotFound()
         {
             Assert.AreEqual(-1, Program.MagicalBinarySearch(this.singleElementTree, 1));
             Assert.AreEqual(-1, Program.MagicalBinarySearch(this.singleElementTree, 20));
@@ -79,8 +79,7 @@ namespace BinarySearchTest
         [TestMethod]
         public void MagicalDualElement()
         {
-            Assert.AreEqual(0, Program.MagicalBinarySearch(this.dualElementTree, 3));
-            Assert.AreEqual(1, Program.MagicalBinarySearch(this.dualElementTree, 5));
+            TestFound(2);
         }
 
         /// <summary>
@@ -145,6 +144,21 @@ namespace BinarySearchTest
             Assert.AreEqual(-1, Program.MagicalBinarySearch(this.evenElementTree, 1));
             Assert.AreEqual(-1, Program.MagicalBinarySearch(this.evenElementTree, 4));
             Assert.AreEqual(-1, Program.MagicalBinarySearch(this.evenElementTree, 15));
+        }
+
+        private static void TestFound(int count)
+        {
+            var times = 10;
+            var data = new int[count];
+            for(var i=0;i<count;i++)
+            {
+                data[i] = i * times;
+            }
+
+            for(var i=0;i<count;i++)
+            {
+                Assert.AreEqual(i, Program.MagicalBinarySearch(data, i*times));
+            }
         }
     }
 }

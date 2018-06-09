@@ -21,9 +21,9 @@ namespace NumberGuesser
         private static Random r = new System.Random();
 
         /// <summary>
-        /// Main Method
+        /// Application Entry
         /// </summary>
-        /// <param name="args">Arguments for Main</param>
+        /// <param name="args">Application Argument</param>
         public static void Main(string[] args)
         {
             int numberOfPlayers = 2;
@@ -107,6 +107,41 @@ namespace NumberGuesser
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Well, Too bad.");
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Check if a guess on a number is right
+        /// </summary>
+        /// <param name="generator">Delegate that generate the answer</param>
+        /// <param name="input">Delegate that generate the input</param>
+        /// <returns>Whether the guess was correct or not</returns>
+        public static bool GuessNumber(int generator, int input)
+        {
+            return generator == input;
+        }
+
+        /// <summary>
+        /// Guess a number that keeps querying for new guesses until the guess is correct
+        /// </summary>
+        /// <param name="generator">Delegate that generate the answer</param>
+        /// <param name="input">Delegate that generate the input</param>
+        public static int GuessNumberAdvanced(int generator, Func<int> input)
+        {
+            if(input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            int count = 0;
+            int guess;
+            do
+            {
+                guess = input();
+                count++;
+            }
+            while (guess != generator);
+
+            return count;
         }
     }
 }

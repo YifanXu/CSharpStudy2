@@ -34,7 +34,7 @@ namespace BinarySearch
         {
             if (data == null)
             {
-                throw new NullReferenceException("the array given is null");
+                throw new ArgumentNullException(nameof(data));
             }
 
             // Sort just in case
@@ -43,11 +43,10 @@ namespace BinarySearch
             // Set up
             int minPos = 0;
             int maxPos = data.Length - 1;
-            int divider = 0;
 
             while (maxPos >= minPos)
             {
-                divider = (minPos + maxPos) / 2;
+                var divider = (minPos + maxPos) / 2;
 
                 if (data[divider] == number)
                 {
